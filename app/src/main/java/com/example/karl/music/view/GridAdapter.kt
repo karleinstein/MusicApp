@@ -8,30 +8,38 @@ import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import com.example.karl.music.R
 import com.example.karl.music.model.Song
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_gridview.view.*
 
-class GridAdapter(val context:Context, private var grids:ArrayList<Song>) : BaseAdapter() {
+class GridAdapter(val context: Context, private var grids: ArrayList<Song>) : BaseAdapter() {
     @SuppressLint("ViewHolder")
     override fun getView(position: Int, p1: View?, p2: ViewGroup?): View {
-        val view:View?
+        val view: View?
         val viewHolder: ViewHolder
-        if (p1==null){
-            val inflater=LayoutInflater.from(context)
-            view=inflater.inflate(R.layout.item_gridview,p2,false)
-            viewHolder= ViewHolder(view)
-            view?.tag=viewHolder
-        }
-        else{
-            view=p1
-            viewHolder=view.tag as ViewHolder
+        if (p1 == null) {
+            val inflater = LayoutInflater.from(context)
+            view = inflater.inflate(R.layout.item_gridview, p2, false)
+            viewHolder = ViewHolder(view)
+            view?.tag = viewHolder
+        } else {
+            view = p1
+            viewHolder = view.tag as ViewHolder
         }
 
-        val song=grids[position]
-        viewHolder.tvName!!.text=song.title
-        viewHolder.tvArtist!!.text=song.singer
-        viewHolder.imvSong!!.setImageURI(song.uriImage)
+        val song = grids[position]
+        viewHolder.tvName!!.text = song.title
+        viewHolder.tvArtist!!.text = song.singer
+//        Glide.with(context)
+//                .load(song.uriImage)
+//                .into(viewHolder.imvSong!!)
+
+        // viewHolder.imvSong!!.setImageURI(song.uriImage)
+        Picasso.get().load(song.uriImage)
+                .placeholder(R.drawable.album)
+                .into(viewHolder.imvSong!!)
         return view as View
     }
 
@@ -46,14 +54,16 @@ class GridAdapter(val context:Context, private var grids:ArrayList<Song>) : Base
     override fun getCount(): Int {
         return grids.size
     }
-    private class ViewHolder(view:View?){
-        var tvName:TextView?=null
-        var tvArtist:TextView?=null
-        var imvSong:ImageView?=null
+
+    private class ViewHolder(view: View?) {
+        var tvName: TextView? = null
+        var tvArtist: TextView? = null
+        var imvSong: ImageView? = null
+
         init {
-            this.tvName=view!!.tvNameSong
-            this.tvArtist= view.tvnameArtist
-            this.imvSong= view.imvSong
+            this.tvName = view!!.tvNameSong
+            this.tvArtist = view.tvnameArtist
+            this.imvSong = view.imvSong
         }
     }
 }

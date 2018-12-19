@@ -1,14 +1,28 @@
 package com.example.karl.music.service.impl
 
 import android.media.MediaPlayer
+import android.util.Log
+import android.widget.SeekBar
+import android.widget.Toast
 import com.example.karl.music.service.SongPlayer
+import java.io.Serializable
+import java.util.logging.Handler
 
-class SongPlayerimpl : SongPlayer {
+class SongPlayerimpl : SongPlayer, Serializable {
+    //private var handler: android.os.Handler = android.os.Handler()
     override fun seek(duration: Int) {
-        if (songState != SongState.IDLE) {
-            mediaPlayer!!.seekTo(duration)
-        }
+        //if (songState != SongState.IDLE) {
+        mediaPlayer!!.seekTo(duration)
+        // }
     }
+
+    override fun getCurrentPosition(): Int {
+        if (mediaPlayer != null) {
+            return mediaPlayer!!.currentPosition
+        }
+        return 0
+    }
+
 
     override fun isSongPlaying(): Boolean {
         return songState == SongState.PLAYING

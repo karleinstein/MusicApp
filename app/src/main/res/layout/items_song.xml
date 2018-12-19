@@ -4,12 +4,12 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 <RelativeLayout
-    android:background="#2b2b2b"
+    android:background="#000"
     android:padding="16dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <TextView
-        android:background="#2b2b2b"
+        android:background="#000"
         android:layout_width="wrap_content"
         android:lines="1"
         android:layout_marginBottom="10dp"
@@ -19,7 +19,7 @@
         android:id="@+id/tvName"/>
     <TextView
         android:lines="1"
-        android:background="#2b2b2b"
+        android:background="#000"
         android:textSize="14sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -10,16 +10,22 @@ import android.util.Log
 class MyService : Service() {
     //Audio actributes
     companion object {
-        const val TAG:String="MyService"
+        const val TAG: String = "MyService"
     }
+
     override fun onBind(p0: Intent?): IBinder? {
-      return null
+        return null
     }
+
     override fun onTaskRemoved(rootIntent: Intent?) {
         super.onTaskRemoved(rootIntent)
-        Log.d(TAG,"Removed Service.....")
+        Log.d(TAG, "Removed Service.....")
         val nm: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         nm.cancel(1234)
         stopSelf()
+    }
+
+    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        return Service.START_NOT_STICKY
     }
 }

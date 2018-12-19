@@ -1,29 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/notificationSong"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:background="#121113"
+    android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingTop="6dp"
     android:paddingRight="16dp"
-    android:paddingBottom="16dp"
-    android:layout_height="wrap_content"
-    android:id="@+id/notificationSong"
-    android:orientation="vertical">
+    android:paddingBottom="16dp">
 
-        <TextView
-            android:id="@+id/tvNameNoti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="fdsa"
-            android:textSize="22sp" />
+    <TextView
+        android:id="@+id/tvNameNoti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lines="1"
+        android:text="fdsa"
+        android:textSize="22sp" />
 
-        <TextView
-            android:id="@+id/tvArtistNoti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tvNameNoti"
-            android:text="fvcx"
-            android:textSize="14sp" />
+    <TextView
+        android:id="@+id/tvArtistNoti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tvNameNoti"
+        android:lines="1"
+        android:text="fvcx"
+        android:textSize="14sp" />
 
     <LinearLayout
         android:layout_width="match_parent"

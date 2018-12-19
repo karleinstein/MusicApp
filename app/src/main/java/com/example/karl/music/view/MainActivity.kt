@@ -1,11 +1,13 @@
 package com.example.karl.music.view
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.os.AsyncTask
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
@@ -18,8 +20,9 @@ import com.example.karl.music.Task
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_library.*
 
-class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener {
+class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
 
     private var height = 0
     private var countBack = 0
@@ -31,6 +34,28 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         const val LIBRARY_FRAGMENT: String = "library_fragment"
         const val HOME_FRAGMENT: String = "home_fragment"
         const val TAG: String = "MainActivity"
+    }
+
+    override fun onClick(p0: View?) {
+        when (p0!!.id) {
+            R.id.ibUp -> {
+                btmNavigation.visibility = View.GONE
+                btnDetail.visibility = View.GONE
+                supportActionBar!!.hide()
+                layoutDetail.visibility = View.VISIBLE
+                rcvMusic.visibility = View.GONE
+            }
+            R.id.ibDown -> {
+                layoutDetail.visibility = View.GONE
+                rcvMusic.visibility = View.VISIBLE
+                btmNavigation.visibility = View.VISIBLE
+                btnDetail.visibility = View.VISIBLE
+                supportActionBar!!.show()
+            }
+            else -> {
+
+            }
+        }
     }
 
     private fun nextSong() {
@@ -85,6 +110,8 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         //pgbSong = findViewById(R.id.pgbSong)
         supportActionBar!!.setDisplayHomeAsUpEnabled(true)
         btmNavigation.setOnNavigationItemSelectedListener(this)
+        ibUp.setOnClickListener(this)
+        btnDetail.setOnClickListener(this)
         supportActionBar!!.title = "Home"
         if (fragmentHome == null) {
             fragmentHome = FragmentHome()
@@ -103,6 +130,7 @@ class MainActivity : AppCompatActivity(), BottomNavigationView.OnNavigationItemS
         }
 
     }
+
 
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onBackPressed() {

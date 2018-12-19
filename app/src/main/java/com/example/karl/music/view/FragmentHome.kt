@@ -27,6 +27,7 @@ class FragmentHome : Fragment() {
         }
         val gridAdapter = GridAdapter(activity!!, grids)
         gvHome.adapter = gridAdapter
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

@@ -1,12 +1,98 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#2b2b2b"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="#2b2b2b"
     tools:context=".view.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/layoutDetail"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <ImageButton
+                android:id="@+id/ibDown"
+                android:layout_width="42dp"
+                android:layout_height="32dp"
+                android:background="@null"
+                android:scaleType="fitCenter"
+                android:src="@drawable/up_button" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginStart="58dp"
+                android:layout_toEndOf="@+id/ibDown"
+                android:text="PLAYING FROM YOUR LIBRARY"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/ivSong"
+            android:layout_width="match_parent"
+            android:layout_height="285dp"
+            android:layout_margin="16dp"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher" />
+
+        <TextView
+            android:id="@+id/tvNameDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="fdsafdsf"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvArtistDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="16dp"
+            android:text="vcxvcx" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvTimeDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12sp" />
+
+            <SeekBar
+                android:id="@+id/sbDuration"
+                android:layout_width="248dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:layout_toEndOf="@+id/tvTimeDuration" />
+
+            <TextView
+                android:id="@+id/tvTimeFinished"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_toEndOf="@+id/sbDuration"
+                android:gravity="center"
+                android:text="fdsafds"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvMusic"
@@ -14,4 +100,4 @@
         android:layout_height="wrap_content" />
 
 
-</LinearLayout>
+</FrameLayout>
