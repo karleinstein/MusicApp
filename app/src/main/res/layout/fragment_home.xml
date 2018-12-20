@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="#2b2b2b"
     android:id="@+id/layout"
+
     android:orientation="vertical">
 
     <TextView
@@ -17,7 +18,8 @@
 
     <GridView
         android:id="@+id/gvHome"
+        android:paddingBottom="46dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:numColumns="3" />
 </LinearLayout>
